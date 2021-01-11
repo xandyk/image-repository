@@ -1,24 +1,22 @@
-const express = require('express')
-const router  = new express.Router()
+const { json } = require('express');
+const express = require('express');
+const router = new express.Router();
 
-const upload  = require('../services/3s-upload')
+const upload = require('../services/upload');
 
-// Multer upload
-// router.post('/image/upload', upload.array('photo'), async (req, res) => {
-//    await res.send('Images uploaded!')
-// }, (error, req, res, next) => {
-//     res.status(400).send('Please upload an image!')
-// }
-// )
+const singleUpload = upload.single('photo');
 
-// S3 upload
-router.post('/image/upload', upload.array('photo'), (req, res) => {
-    // res.send('Images uploaded!')
-    return res.json({status: 'OK', uploaded: req.files.length})
-}
-// , (error, req, res, next) => {
-//      res.status(400).send('Please upload an image!')
-//     }
-)
+router.post(
+  '/image-upload',
+  (req, res) => {
+    singleUpload(req, res, err => {
+      res.send('Image uploaded!');
+    });
+    // return res.json({ status: 'OK', uploaded: req.file.length });
+  },
+  (error, req, res, next) => {
+    res.status(400).send('Please upload an image!');
+  }
+);
 
-module.exports = router
+module.exports = router;
