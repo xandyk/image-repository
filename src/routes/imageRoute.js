@@ -17,13 +17,13 @@ router.post('/image-upload', async (req, res) => {
 });
 
 // GET images
-router.get('/image-view', async (req, res) => {
-  await getImages(req, res, err => {
-    if (err) {
-      res.send(err);
-    }
-    res.json({ message: 'ok' });
-  });
+router.get('/image-view', async (req, res, next) => {
+  try {
+    const images = await getImages();
+    res.json(images);
+  } catch (err) {
+    next(err);
+  }
 });
 
 // DELETE an image
