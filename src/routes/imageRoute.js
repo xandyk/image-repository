@@ -2,6 +2,7 @@ const express = require('express');
 const router = new express.Router();
 
 const upload = require('../controllers/upload');
+const download = require('../controllers/download');
 const getImages = require('../controllers/display');
 const deleteImage = require('../controllers/delete');
 
@@ -22,6 +23,16 @@ router.get('/image-view', async (req, res, next) => {
   try {
     const images = await getImages();
     res.json(images);
+  } catch (err) {
+    next(err);
+  }
+});
+
+// GET: Download an image
+router.get('/image-download/:filename', async (req, res, next) => {
+  try {
+    const downloadFile = await download();
+    res.json(downloadFile);
   } catch (err) {
     next(err);
   }
