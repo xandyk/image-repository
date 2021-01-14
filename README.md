@@ -28,5 +28,4 @@ npm install
 ## Dependencies
    * aws-sdk: ^2.824.0
    * express: ^4.17.1
-   * multer: ^1.4.2
    * multer-s3: ^2.9.0
