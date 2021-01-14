@@ -20,7 +20,7 @@ git clone https://github.com/xandyk/image-repository
 
 2. Install NPM packages
 ```sh
-cd server
+cd image-repository
 npm install
 ```
 
