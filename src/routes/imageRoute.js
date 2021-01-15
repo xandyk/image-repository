@@ -5,17 +5,21 @@ const upload = require('../controllers/upload');
 const download = require('../controllers/download');
 const getImages = require('../controllers/display');
 const deleteImage = require('../controllers/delete');
+const imageModel = require('../model/imageModel');
+
+const singleUpload = upload.single('photo');
 
 // POST an image
-router.post('/image-upload', async (req, res) => {
-  const singleUpload = upload.single('photo');
-
-  await singleUpload(req, res, err => {
-    if (err) {
-      res.send(err);
-    }
-    res.json({ message: 'Image is uploaded' });
-  });
+router.post('/image-upload', singleUpload, async (req, res, next) => {
+  try {
+    const { caption } = req.body;
+    console.log(req.file);
+    console.log(caption);
+    await imageModel.create({ name: req.file.location, caption });
+    res.json({ status: 'OK' });
+  } catch (err) {
+    next(err);
+  }
 });
 
 // GET all images
