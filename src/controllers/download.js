@@ -9,7 +9,7 @@ const download = () => {
     Key: 'beach.jpg',
   };
 
-  const file = fs.createWriteStream(path.join(__dirname, 'download/beach.jpg'));
+  const file = fs.createWriteStream(path.join(__dirname, '../../' ,'download/beach.jpg'));
 
   try {
     s3.getObject(params).createReadStream().pipe(file);
