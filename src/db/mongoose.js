@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
+const url = process.env.MONGODB_URL
 
-mongoose.connect("mongodb://localhost:27017/image-search", {
+mongoose.connect(url, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });

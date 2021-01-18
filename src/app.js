@@ -1,7 +1,8 @@
 require('./db/mongoose');
 const express = require('express');
-const imageRoute = require('./routes/imageRoute');
 const app = express();
+
+const imageRoute = require('./routes/imageRoute');
 
 app.use(express.json());
 app.use(express.static('public'));
