@@ -1,20 +1,22 @@
 const imageModal = require('../model/imageModel')
 
-const search = async (keyword) => {
+const searchByName = async (filename) => {
     try {
-        const regex = new RegExp(keyword, 'gi')
-        const images = await imageModal.find({ caption: { $regex: regex }});
-        return images
+        const imageName = await imageModal.find({ name: filename});
+        return imageName
     } catch (error) {
         return error;
     }
-    
 }
 
-module.exports = search;
+const searchByCaption = async (keyword) => {
+    try {
+        const regex = new RegExp(keyword, 'gi')
+        const imageCaption = await imageModal.find({ caption: { $regex: regex }});
+        return imageCaption
+    } catch (error) {
+        return error;
+    }
+}
 
-// i'm reading the doc -> search for $regex
-// search function done
-// it looks so simple! 
-// what's RegExp-> yep
-// now search endpoint route? create it where you wanna create
+module.exports = {searchByCaption, searchByName};
