@@ -12,7 +12,7 @@ The goal for this task is to build an image repository which allows a user to in
 
 ## Getting Started
 
-1. Create a free AWS S3 account at (https://aws.amazon.com/s3/)
+1. Create a free AWS S3 account at https://aws.amazon.com/s3/
 
 2. Get free Access Key ID and Secret Access Key in My Security Cridentials
 
