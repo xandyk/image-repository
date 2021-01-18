@@ -23,11 +23,11 @@ git clone https://github.com/xandyk/image-repository
 cd image-repository
 npm install
 ```
-3. Store AWS S3 security credentials to a config folder and name the file to `keys.env`
+3. Store AWS S3 security credentials to a `config` folder and name the file to `keys.env`
   * Access Key ID
   * Secret Access Key
 
-4. Add dev script to package.json
+4. Add dev script to `package.json`
 ```sh
 "dev": "env-cmd -f ./config/keys.env nodemon index.js" 
 ```
