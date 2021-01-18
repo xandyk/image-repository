@@ -1,6 +1,7 @@
 const aws = require('aws-sdk');
 const s3 = new aws.S3();
 
+// Get all images from S3
 const getImages = async () => {
   let files = [];
   const data = await s3
