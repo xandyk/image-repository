@@ -31,7 +31,8 @@ npm install
    Open `keys.env` and enter the following:
  ```sh
  AWS_ACCESS_KEY_ID= [your access key ID]
- AWS_SECRET_ACCESS_KEY= [You secret access key]
+ AWS_SECRET_ACCESS_KEY= [your secret access key]
+ BUCKET_NAME= [your bucket name]
  ```
 
 6. Add dev script to `package.json`
